@@ -4,7 +4,9 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "nodemon -r dotenv/config server.js",
-    "start": "node -r dotenv/config server.js"
+    "start": "node -r dotenv/config server.js",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
     "cors": "^2.8.5",
