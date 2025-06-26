@@ -85,7 +85,10 @@ const App = () => {
         </div>
         <div className="github">
           {" "}
-          <a href="https://github.com/your-repo-link" className="github-button">
+          <a
+            href="https://github.com/aniket190705/InsightFactor"
+            className="github-button"
+          >
             GitHub Repo <img src="/images/github-mark-white.png" alt="" />
           </a>
         </div>
