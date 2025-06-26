@@ -4,22 +4,19 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "nodemon -r dotenv/config server.js",
-    "start": "node -r dotenv/config server.js",
-    "build": "vite build",
-    "preview": "vite preview"
+    "start": "node -r dotenv/config server.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^4.19.2",
-    "node-fetch": "^3.3.2",
-    "vite": "^7.0.0"
+    "node-fetch": "^3.3.2"
   },
   "devDependencies": {
     "nodemon": "^3.1.0"
   },
-  "main": "server.js",
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "ISC"
 }
