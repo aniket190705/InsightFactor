@@ -27,13 +27,16 @@ const App = () => {
     setWaitingOnResponse(true);
 
     try {
-      const response = await fetch("http://localhost:3001/runFlow", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ message: newMessage }),
-      });
+      const response = await fetch(
+        "https://insightfactor.onrender.com/runFlow",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ message: newMessage }),
+        }
+      );
 
       const result = await response.json();
       console.log("Response from server:", result);

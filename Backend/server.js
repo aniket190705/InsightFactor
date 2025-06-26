@@ -18,23 +18,23 @@ app.post("/runFlow", async (req, res) => {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                Authorization: `Bearer ${TOKEN}`
+                Authorization: `Bearer ${TOKEN}`,
             },
             body: JSON.stringify({
                 input_value: req.body.message,
                 input_type: "chat",
                 output_type: "chat",
-                session_id: "user_1"
-            })
+                session_id: "user_1",
+            }),
         });
 
-        const raw = await lfRes.text();          // read as text first
+        const raw = await lfRes.text();
 
         if (!lfRes.ok) {
             console.error("Langflow error", lfRes.status, raw);
             return res.status(lfRes.status).json({
                 error: "Langflow error",
-                details: raw || lfRes.statusText
+                details: raw || lfRes.statusText,
             });
         }
 
@@ -46,9 +46,9 @@ app.post("/runFlow", async (req, res) => {
             return res.status(500).json({ error: "Bad JSON from Langflow" });
         }
 
-        console.log("Langflow response status:", lfRes);
-        const output = data.outputs[0].outputs[0].artifacts.message;
-        console.log(data.outputs[0].outputs[0].artifacts.message)
+        const output = data.outputs?.[0]?.outputs?.[0]?.artifacts?.message;
+        console.log("Langflow message:", output);
+
         res.json({ result: output ?? "[empty reply]" });
     } catch (e) {
         console.error("Proxy crashed:", e);
@@ -59,6 +59,3 @@ app.post("/runFlow", async (req, res) => {
 app.listen(PORT, () =>
     console.log(`Langflow proxy running → http://localhost:${PORT}`)
 );
-
-
-
